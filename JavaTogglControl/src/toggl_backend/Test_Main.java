@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package universal_json;
+package toggl_backend;
 
 import java.io.IOException;
 import java.net.ProtocolException;
@@ -17,7 +17,7 @@ public class Test_Main {
     public static void main(String[] args) throws ProtocolException, IOException {
         
         togglAccount testAccount = new togglAccount();
-        Universal_JSON testCase = new Universal_JSON();
+        Universal_JSON_Body_Http_Methods testCase = new Universal_JSON_Body_Http_Methods();
         String testRet = " "; 
         
         //testAccount.currentTimer();

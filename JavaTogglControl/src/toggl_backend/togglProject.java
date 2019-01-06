@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package universal_json;
+package toggl_backend;
 
 import java.util.ArrayList;
 

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package universal_json;
+package toggl_backend;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -16,11 +16,11 @@ import java.util.ArrayList;
  */
 public class togglAccount {
                             
-    private String uName = "1234567890abcdefghijklmnopqrstuv";
+    private String uName = "abc59987cb9602bb18c5df1cdbbc4c13";
     private String password = "api_token";
     private ArrayList <togglProject> projects = new ArrayList();
     
-    private Universal_JSON utility = new Universal_JSON() ;
+    private Universal_JSON_Body_Http_Methods utility = new Universal_JSON_Body_Http_Methods() ;
     
     public void currentTimer () throws ProtocolException, IOException
     {
@@ -81,7 +81,7 @@ public class togglAccount {
     
     public void stopCurrent () throws ProtocolException, IOException
     {
-        String output = Universal_JSON.Universal_Get("https://www.toggl.com/api/v8/time_entries/current",uName,password);
+        String output = Universal_JSON_Body_Http_Methods.Universal_Get("https://www.toggl.com/api/v8/time_entries/current",uName,password);
         System.out.println(output);
         
         if ("{\"data\":null}".equals(output))
@@ -97,7 +97,7 @@ public class togglAccount {
         
         String id = output.substring(startLoc, endLoc);
         
-        output = Universal_JSON.Universal_Get("https://www.toggl.com/api/v8/time_entries/"+id+"/stop",uName,password);
+        output = Universal_JSON_Body_Http_Methods.Universal_Get("https://www.toggl.com/api/v8/time_entries/"+id+"/stop",uName,password);
         System.out.println(output);
         }
     }
@@ -108,7 +108,7 @@ public class togglAccount {
         String id;
         String name;
         
-        String output  = Universal_JSON.Universal_Get("https://www.toggl.com/api/v8/me",uName,password);
+        String output  = Universal_JSON_Body_Http_Methods.Universal_Get("https://www.toggl.com/api/v8/me",uName,password);
         //System.out.println(output); 
         
         int startLoc = output.indexOf("wid");
@@ -117,7 +117,7 @@ public class togglAccount {
         
         String wid = output.substring(startLoc, endLoc);
         
-        output = Universal_JSON.Universal_Get("https://www.toggl.com/api/v8/workspaces/"+ wid +"/projects",uName,password);
+        output = Universal_JSON_Body_Http_Methods.Universal_Get("https://www.toggl.com/api/v8/workspaces/"+ wid +"/projects",uName,password);
         
         //System.out.println(output);
         
@@ -145,6 +145,6 @@ public class togglAccount {
     
     public void startATimer(int projectIndex, int desriptionIndex) throws MalformedURLException, IOException
     {
-        Universal_JSON.Universal_Post("https://www.toggl.com/api/v8/time_entries/start","{\"time_entry\":{\"description\" : \""+projects.get(projectIndex).descriptions.get(desriptionIndex)+"\", \"pid\" : "+ projects.get(projectIndex).id + ", \"created_with\" : \"java\"}}", uName, password);
+        Universal_JSON_Body_Http_Methods.Universal_Post("https://www.toggl.com/api/v8/time_entries/start","{\"time_entry\":{\"description\" : \""+projects.get(projectIndex).descriptions.get(desriptionIndex)+"\", \"pid\" : "+ projects.get(projectIndex).id + ", \"created_with\" : \"java\"}}", uName, password);
     }
 }
