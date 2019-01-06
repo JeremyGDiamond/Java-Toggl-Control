@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class togglAccount {
                             
-    private String uName = "abc59987cb9602bb18c5df1cdbbc4c13";
+    private String uName = "1234567890abcdefghijklmnopqrstuv";
     private String password = "api_token";
     private ArrayList <togglProject> projects = new ArrayList();
     
