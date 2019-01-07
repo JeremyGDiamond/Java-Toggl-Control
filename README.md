@@ -1,6 +1,6 @@
 # Java-Toggl-Control
 
-Toggl is a web service for time tracking. You can find it here. It has many applications in the worlds of business and education. There reports framework is unmatched, their feature rich ecosystem hooks in very well with other applications, and their rest api is extremely extensive. However all of there front end interfaces are unintuitive, time consuming and poorly optimized for my workflow. Their android app is particularly known to be horrible.
+Toggl is a web service for time tracking. [You can find it here.](https://toggl.com/) It has many applications in the worlds of business and education. There reports framework is unmatched, their feature rich ecosystem hooks in very well with other applications, and their rest api is extremely extensive. However all of there front end interfaces are unintuitive, time consuming and poorly optimized for my workflow. Their android app is particularly known to be horrible.
 
 I set out to create my own interface using the api in the java base library. This approach was chosen as the result would be portable to not only the target platform of android but any desktop or future web version I may need.
 
