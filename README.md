@@ -37,12 +37,13 @@ The main driving class of the backend where all of the timer control functionali
 Local data is your api token as a hard coded string, and an ArrayList of togglProject objects. This ArrayList must be populated via the readAllProjects method with the projects on your account according to the api. This is not done at construction to leave room open for other data population methods in the future.
 
 #### currentTimer
-
+Uses the api_token and Universal_JSON_Body_Http_Methods.Universal_Get to retrieve information about the current timer. If there is not one it prints “no current timer”. Otherwise it prints the name, project and duration of the current timer. Prints will later be replaced with returns to extend usefulness.
 #### stopCurrent
-
+Uses the api_token and Universal_JSON_Body_Http_Methods.Universal_Get to retrieve information about the current timer. If there is not one it prints “no current timer”. Otherwise it uses the timer id number and Universal_JSON_Body_Http_Methods.Universal_Get to send a stop command. It then prints the result of the stop. Prints will later be replaced with returns to extend usefulness.
 #### readAllProjects
-
+Uses the api_token and Universal_JSON_Body_Http_Methods.Universal_Get to retrieve your workspace id. Then uses the api_token, Universal_JSON_Body_Http_Methods.Universal_Get  and your workspace id to retrieve your project list. Then uses that project list to instachat toggl Project objects and add them to the ArrayList. 
 #### startATimer
+Takes in project and description numbers as integers. Uses the api_token and Universal_JSON_Body_Http_Methods.Universal_Post to start the corresponding timer.
 
 ## Use
 Adding the class files to any other java project enables starting and stopping timers. In togglAccount.java modify the uName variable to your api token found in the settings of the toggl website. If you don’t do this the errors are unintelligible.
