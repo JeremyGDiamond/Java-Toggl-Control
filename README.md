@@ -16,9 +16,15 @@ A class containing functions that perform basic http methods for interacting wit
 
 #### Universal_Get
 
+Takes in a url, a username, and a password, as strings. Encodes the username and the password as a Base 64 string for a basic authentication. Sends a http get to the url with the encoded authentication and returns the response as a string.
+
 #### Universal_Put
 
+Takes in a url, a json object, a username, and a password as strings. Encodes the username and the password as a Base 64 string for a basic authentication. Sends a http put to the url with the encoded authentication and returns the response as a string.
+
 #### Universal_Post
+
+Takes in a url, a json object, a username, and a password as strings. Encodes the username and the password as a Base 64 string for a basic authentication. Formats connection parameters to handle the json body. Converts the json body to utf-8. Sends a http post to the url with the encoded authentication and json body. Returns the response as a string.
 
 #### Notes
 This will likely end up being split into its own package at some point as the functionality is extremely flexible. The class currently does not contain all http methods as they are not yet needed for any of my projects.
