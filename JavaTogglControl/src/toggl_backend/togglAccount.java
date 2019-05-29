@@ -117,6 +117,16 @@ public class togglAccount {
         }
     }
     
+    public void addProjectToDatabase(String newId,String newName)
+    {
+        togglProject tempProj = new togglProject(newId,newName);
+    }
+    
+    public void addTagToDatabase(String newId,String newName)
+    {
+        togglTag tempTag = new togglTag(newId,newName); 
+    }
+    
     public void readAllProjects() throws ProtocolException, IOException
     {
         togglProject tempProject;
@@ -200,6 +210,23 @@ public class togglAccount {
        
     }
     
+    public ArrayList<String> getAProject(int index)
+    {
+        ArrayList<String> projectInfo = new ArrayList();
+        
+        projectInfo.add(projects.get(index).id);
+        projectInfo.add(projects.get(index).name);
+        
+        int desListSize = projects.get(index).descriptions.size();
+        
+        for (int i = 0; i < desListSize; ++i)
+        {
+            projectInfo.add(projects.get(index).descriptions.get(i));
+        }
+        
+        return projectInfo;
+    }
+    
     public void startATimer(int projectIndex, int desriptionIndex) throws MalformedURLException, IOException
     {
         Universal_JSON_Body_Http_Methods.Universal_Post("https://www.toggl.com/api/v8/time_entries/start","{\"time_entry\":{\"description\" : \""+projects.get(projectIndex).descriptions.get(desriptionIndex)+"\", \"pid\" : "+ projects.get(projectIndex).id + ", \"created_with\" : \"java\"}}", uName, password);
@@ -217,7 +244,7 @@ public class togglAccount {
         
         tagString = tagString + "\"],";
         
-        System.out.print(tagString);
+        //System.out.print(tagString);
         
         Universal_JSON_Body_Http_Methods.Universal_Post("https://www.toggl.com/api/v8/time_entries/start","{\"time_entry\":{\"description\" : \""+projects.get(projectIndex).descriptions.get(desriptionIndex)+"\"," + tagString + "\"pid\" : "+ projects.get(projectIndex).id + ", \"created_with\" : \"java\"}}", uName, password);
     }

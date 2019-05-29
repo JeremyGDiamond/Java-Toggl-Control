@@ -23,6 +23,7 @@ public class Test_Main {
         ArrayList<Integer> tagIndexs = new ArrayList();
         tagIndexs.add(0);
         tagIndexs.add(3);
+        tagIndexs.add(2);
         
         //testAccount.currentTimer();
         //testAccount.stopCurrent();
