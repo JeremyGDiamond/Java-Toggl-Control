@@ -20,16 +20,26 @@ public class togglAccount {
     private String password = "api_token";
     private ArrayList <togglProject> projects = new ArrayList();
     
-    private Universal_JSON_Body_Http_Methods utility = new Universal_JSON_Body_Http_Methods() ;
+   
     
     
     public togglAccount(String api_key){
         uName = api_key;
     }
     
+      public togglAccount(String user_name, String user_password) throws ProtocolException, IOException{
+        uName = getApiToken(user_name, user_password);
+        
+    }
+    
+    public String getApiToken (String user_name, String user_password)throws ProtocolException, IOException{
+        String output =  Universal_JSON_Body_Http_Methods.Universal_Get("https://www.toggl.com/api/v8/me",user_name,user_password);
+        return output.substring(output.indexOf("api_token")+12,output.indexOf("api_token")+44);
+    }
+      
     public void currentTimer () throws ProtocolException, IOException
     {
-        String output = utility.Universal_Get("https://www.toggl.com/api/v8/time_entries/current",uName,password);
+        String output =  Universal_JSON_Body_Http_Methods.Universal_Get("https://www.toggl.com/api/v8/time_entries/current",uName,password);
         //System.out.println(output);
         
         if ("{\"data\":null}".equals(output))
@@ -70,7 +80,7 @@ public class togglAccount {
         numofmin = numofmin - (numofhr*60);
         
         
-        output = utility.Universal_Get("https://www.toggl.com/api/v8/projects/"+pid,uName,password);
+        output = Universal_JSON_Body_Http_Methods.Universal_Get("https://www.toggl.com/api/v8/projects/"+pid,uName,password);
         //System.out.println(output);
         
         startLoc = output.indexOf("name");
