@@ -21,6 +21,7 @@ public class Test_Main {
         //Universal_JSON_Body_Http_Methods testCase = new Universal_JSON_Body_Http_Methods();
         String testRet = " "; 
         ArrayList<Integer> tagIndexs = new ArrayList();
+        ArrayList<String> getInfo = new ArrayList();
         tagIndexs.add(0);
         tagIndexs.add(3);
         tagIndexs.add(2);
@@ -35,7 +36,16 @@ public class Test_Main {
         //System.out.print(testRet);
         //testAccount.startATimer(0, 0);
        // testRet = testCase.Universal_Put("https://www.toggl.com/api/v8/time_entries/897164346/stop","1234567890abcdefghijklmnopqrstuv","api_token");
-       testAccount.startATimerWithTags(0, 0, tagIndexs);
+       //testAccount.startATimerWithTags(0, 0, tagIndexs);
+       getInfo = testAccount.getAProjectsData(0);
+       
+       for (int i = 0; i < getInfo.size(); i++)
+           System.out.print(getInfo.get(i)+", ");
+       
+       getInfo = testAccount.getATagsData(0);
+       
+       for (int i = 0; i < getInfo.size(); i++)
+           System.out.print(getInfo.get(i)+", ");
     }
     
 }  

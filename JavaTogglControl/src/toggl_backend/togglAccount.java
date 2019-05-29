@@ -210,7 +210,7 @@ public class togglAccount {
        
     }
     
-    public ArrayList<String> getAProject(int index)
+    public ArrayList<String> getAProjectsData(int index)
     {
         ArrayList<String> projectInfo = new ArrayList();
         
@@ -225,6 +225,17 @@ public class togglAccount {
         }
         
         return projectInfo;
+    }
+    
+    public ArrayList<String> getATagsData(int index)
+    {
+        ArrayList<String> tagInfo = new ArrayList();
+        
+        tagInfo.add(tags.get(index).id);
+        tagInfo.add(tags.get(index).name);
+        
+        
+        return tagInfo;
     }
     
     public void startATimer(int projectIndex, int desriptionIndex) throws MalformedURLException, IOException
