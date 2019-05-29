@@ -19,7 +19,7 @@ public class togglAccount {
     private String uName;
     private String password = "api_token";
     private ArrayList <togglProject> projects = new ArrayList();
-    public ArrayList <togglTag> tags = new ArrayList();
+    private ArrayList <togglTag> tags = new ArrayList();
    
     
     
@@ -203,5 +203,22 @@ public class togglAccount {
     public void startATimer(int projectIndex, int desriptionIndex) throws MalformedURLException, IOException
     {
         Universal_JSON_Body_Http_Methods.Universal_Post("https://www.toggl.com/api/v8/time_entries/start","{\"time_entry\":{\"description\" : \""+projects.get(projectIndex).descriptions.get(desriptionIndex)+"\", \"pid\" : "+ projects.get(projectIndex).id + ", \"created_with\" : \"java\"}}", uName, password);
+    }
+
+    public void startATimerWithTags(int projectIndex, int desriptionIndex,ArrayList<Integer> tagIndexs) throws MalformedURLException, IOException
+    {
+        String tagString = "\"tags\":[" ; 
+        for (int i = 0; i < tagIndexs.size(); ++i)
+        {
+           tagString = tagString + "\""+ tags.get(tagIndexs.get(i)).name + "\",";
+        }
+        
+        tagString = tagString.substring(0,tagString.lastIndexOf(",")-1) + tagString.substring(tagString.lastIndexOf(",")+1);
+        
+        tagString = tagString + "\"],";
+        
+        System.out.print(tagString);
+        
+        Universal_JSON_Body_Http_Methods.Universal_Post("https://www.toggl.com/api/v8/time_entries/start","{\"time_entry\":{\"description\" : \""+projects.get(projectIndex).descriptions.get(desriptionIndex)+"\"," + tagString + "\"pid\" : "+ projects.get(projectIndex).id + ", \"created_with\" : \"java\"}}", uName, password);
     }
 }
