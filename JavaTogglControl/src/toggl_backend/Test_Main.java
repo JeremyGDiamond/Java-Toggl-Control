@@ -16,7 +16,7 @@ import java.net.ProtocolException;
 public class Test_Main {
     public static void main(String[] args) throws ProtocolException, IOException {
         
-        togglAccount testAccount = new togglAccount();
+        togglAccount testAccount = new togglAccount("31e0b5ef7305066436015e9de98873b0");
         Universal_JSON_Body_Http_Methods testCase = new Universal_JSON_Body_Http_Methods();
         String testRet = " "; 
         
@@ -31,5 +31,4 @@ public class Test_Main {
         System.out.print(testRet);
     }
     
-    
-}
+}  

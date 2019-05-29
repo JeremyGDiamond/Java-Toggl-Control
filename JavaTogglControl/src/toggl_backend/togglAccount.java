@@ -16,11 +16,16 @@ import java.util.ArrayList;
  */
 public class togglAccount {
                             
-    private String uName = "1234567890abcdefghijklmnopqrstuv";
+    private String uName;
     private String password = "api_token";
     private ArrayList <togglProject> projects = new ArrayList();
     
     private Universal_JSON_Body_Http_Methods utility = new Universal_JSON_Body_Http_Methods() ;
+    
+    
+    public togglAccount(String api_key){
+        uName = api_key;
+    }
     
     public void currentTimer () throws ProtocolException, IOException
     {
