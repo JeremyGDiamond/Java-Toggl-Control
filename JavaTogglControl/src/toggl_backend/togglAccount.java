@@ -19,7 +19,7 @@ public class togglAccount {
     private String uName;
     private String password = "api_token";
     private ArrayList <togglProject> projects = new ArrayList();
-    
+    public ArrayList <togglTag> tags = new ArrayList();
    
     
     
@@ -156,6 +156,48 @@ public class togglAccount {
             tempProject = new togglProject(id,name);
             projects.add(tempProject);
         }
+    }
+    
+    public void readAllTags() throws ProtocolException, IOException
+    {
+        togglTag tempTag;
+        String id;
+        String name;
+        
+        String output  = Universal_JSON_Body_Http_Methods.Universal_Get("https://www.toggl.com/api/v8/me",uName,password);
+        //System.out.println(output); 
+        
+        int startLoc = output.indexOf("wid");
+        startLoc += ("wid".length() + 2);
+        int endLoc = output.indexOf(",", startLoc);
+        
+        String wid = output.substring(startLoc, endLoc);
+        
+        output = Universal_JSON_Body_Http_Methods.Universal_Get("https://www.toggl.com/api/v8/workspaces/"+ wid +"/tags",uName,password);
+        
+        //System.out.println(output);
+        
+        while (output.contains("name"))
+        {
+        
+            startLoc = output.indexOf("id");
+            startLoc += ("id".length() + 2);
+            endLoc = output.indexOf(",", startLoc);
+
+            id = output.substring(startLoc, endLoc);
+
+            startLoc = output.indexOf("name");
+            startLoc += ("name".length() + 3);
+            endLoc = output.indexOf("\"", startLoc);
+
+            name = output.substring(startLoc, endLoc);
+
+            output = output.substring(endLoc);
+            
+            tempTag = new togglTag(id,name);
+            tags.add(tempTag);
+        }
+       
     }
     
     public void startATimer(int projectIndex, int desriptionIndex) throws MalformedURLException, IOException

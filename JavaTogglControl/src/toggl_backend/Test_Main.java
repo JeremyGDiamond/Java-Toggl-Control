@@ -23,7 +23,9 @@ public class Test_Main {
         //testAccount.currentTimer();
         //testAccount.stopCurrent();
         testAccount.readAllProjects();
-        
+        testAccount.readAllTags();
+        for (int i = 0; i < testAccount.tags.size(); ++i )
+            System.out.print((testAccount.tags.get(i).name)+"\n");
        // testRet = testCase.Universal_Post("https://www.toggl.com/api/v8/time_entries/start","{\"time_entry\":{\"description\" : \"test description\", \"pid\" : 12345678, \"created_with\" : \"java\"}}","1234567890abcdefghijklmnopqrstuv","api_token");
         //System.out.print(testRet);
         testAccount.startATimer(0, 0);
