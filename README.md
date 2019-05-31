@@ -12,7 +12,7 @@ Simply a driver for testing the functionality of the other classes.
 
 ### Universal_JSON_Body_Http_Methods.java
 
-A class containing functions that perform basic http methods for interacting with a rest api that makes use of json objects. This specifically only makes use of native java libraries. All other posted solutions online made use of the apache library which was deprecated out of android support in as of java 10. I was surprised to find this was not a common application of java.
+A class containing functions that perform basic http methods for interacting with a rest api that makes use of json objects. This specifically only makes use of native java libraries. All other posted solutions online made use of the apache library which was deprecated out of android support, as of java 10. I was surprised to find this was not a common application of java.
 
 #### Universal_Get
 
