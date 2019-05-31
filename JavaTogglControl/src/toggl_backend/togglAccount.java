@@ -238,6 +238,34 @@ public class togglAccount {
         return tagInfo;
     }
     
+    public ArrayList<ArrayList> getAllTagsData(ArrayList<Integer> indexs)
+    {
+        ArrayList<ArrayList> allTags = new ArrayList();
+        ArrayList<String> tagInfo;
+        
+        for (int i = 0; i < tags.size(); ++i)
+        {
+            tagInfo = getATagsData(i);
+            allTags.add(tagInfo);
+        }
+        
+        return allTags;
+    }
+    
+        public ArrayList<ArrayList> getAllProjectsData(ArrayList<Integer> indexs)
+    {
+        ArrayList<ArrayList> allProjects = new ArrayList();
+        ArrayList<String> projectInfo;
+        
+        for (int i = 0; i < projects.size(); ++i)
+        {
+            projectInfo = getAProjectsData(i);
+            allProjects.add(projectInfo);
+        }
+        
+        return allProjects;
+    }
+    
     public void startATimer(int projectIndex, int desriptionIndex) throws MalformedURLException, IOException
     {
         Universal_JSON_Body_Http_Methods.Universal_Post("https://www.toggl.com/api/v8/time_entries/start","{\"time_entry\":{\"description\" : \""+projects.get(projectIndex).descriptions.get(desriptionIndex)+"\", \"pid\" : "+ projects.get(projectIndex).id + ", \"created_with\" : \"java\"}}", uName, password);

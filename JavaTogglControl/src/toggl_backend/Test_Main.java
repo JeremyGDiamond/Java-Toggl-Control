@@ -22,6 +22,8 @@ public class Test_Main {
         String testRet = " "; 
         ArrayList<Integer> tagIndexs = new ArrayList();
         ArrayList<String> getInfo = new ArrayList();
+        ArrayList<ArrayList> compoundList = new ArrayList();
+        
         tagIndexs.add(0);
         tagIndexs.add(3);
         tagIndexs.add(2);
@@ -42,10 +44,34 @@ public class Test_Main {
        for (int i = 0; i < getInfo.size(); i++)
            System.out.print(getInfo.get(i)+", ");
        
+       
+       System.out.print("\n\n");
        getInfo = testAccount.getATagsData(0);
        
        for (int i = 0; i < getInfo.size(); i++)
            System.out.print(getInfo.get(i)+", ");
+       
+       System.out.print("\n\n");
+       compoundList = testAccount.getAllTagsData(tagIndexs);
+       
+       for (int j = 0; j <compoundList.size() ; j++){
+            for (int i = 0; i < compoundList.get(j).size(); i++){
+                System.out.print(compoundList.get(j).get(i)+", ");
+            }
+            System.out.print("\n");
+
+       }
+       
+       System.out.print("\n\n");
+       compoundList = testAccount.getAllProjectsData(tagIndexs);
+       
+       for (int j = 0; j <compoundList.size() ; j++){
+            for (int i = 0; i < compoundList.get(j).size(); i++){
+                System.out.print(compoundList.get(j).get(i)+", ");
+            }
+            System.out.print("\n");
+
+       }
     }
     
 }  
