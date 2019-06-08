@@ -127,6 +127,16 @@ public class togglAccount {
         togglTag tempTag = new togglTag(newId,newName); 
     }
     
+    public void RemoveTagFromDatabase(int tagIndex)
+    {
+        tags.remove(tagIndex);
+    }
+    
+    public void RemoveProjectFromDatabase(int projectIndex)
+    {
+        projects.remove(projectIndex);
+    }
+    
     public void readAllProjects() throws ProtocolException, IOException
     {
         togglProject tempProject;
@@ -252,7 +262,7 @@ public class togglAccount {
         return allTags;
     }
     
-        public ArrayList<ArrayList> getAllProjectsData(ArrayList<Integer> indexs)
+    public ArrayList<ArrayList> getAllProjectsData(ArrayList<Integer> indexs)
     {
         ArrayList<ArrayList> allProjects = new ArrayList();
         ArrayList<String> projectInfo;
@@ -264,6 +274,21 @@ public class togglAccount {
         }
         
         return allProjects;
+    }
+    
+    public ArrayList<String> getAllDescriptionsFromAProject(int projectIndex)
+    {
+        ArrayList<String> descriptions = new ArrayList();
+     
+        for (int i =0; i < projects.get(projectIndex).descriptions.size(); i++)
+            descriptions.add(projects.get(projectIndex).descriptions.get(i));
+        
+        return descriptions;
+    }
+    
+    public void setAllDescriptionsFromAProject(int projectIndex, ArrayList<String> newDescrips)
+    {
+       projects.get(projectIndex).descriptions = newDescrips;
     }
     
     public void startATimer(int projectIndex, int desriptionIndex) throws MalformedURLException, IOException

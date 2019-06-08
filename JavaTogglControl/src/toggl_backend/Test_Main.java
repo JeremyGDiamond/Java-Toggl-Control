@@ -72,6 +72,22 @@ public class Test_Main {
             System.out.print("\n");
 
        }
+       
+       getInfo.clear();
+       
+       getInfo.add("des1");
+       getInfo.add("des2");
+       getInfo.add("des3");
+       testAccount.setAllDescriptionsFromAProject(0, getInfo);
+       
+       
+       getInfo = testAccount.getAllDescriptionsFromAProject(0);
+       
+       System.out.print("\n");
+        
+        for (int i = 0; i < getInfo.size(); i++)
+           System.out.print(getInfo.get(i)+", ");
+       
     }
     
 }  
