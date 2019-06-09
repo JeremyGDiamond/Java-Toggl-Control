@@ -1,15 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package toggl_backend;
 
 import java.util.ArrayList;
 
 /**
- *
- * @author jeremy
+*This is a ADT to hold the info for projects
+*   
  */
 public class togglProject {
     

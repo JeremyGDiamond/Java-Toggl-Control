@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package toggl_backend;
 
 import java.io.BufferedReader;
@@ -18,20 +14,13 @@ import java.util.ArrayList;
 import java.util.Base64;
 
 /**
- *
- * @author jdiamond
+ *  
+ * 
  */
 
 
 public class Universal_JSON_Body_Http_Methods {
 
-    /**
-     * @param args the command line arguments
-     */
-    
-    
-    
-    
     public static String Universal_Get(String urlString, String userName, String password ) throws MalformedURLException, ProtocolException, IOException
     {
      //String urlString = "https://www.toggl.com/api/v8/workspaces/1234567/projects";
