@@ -1,5 +1,5 @@
 
-package toggl_backend;
+package toggl_api_interface;
 
 public class togglTag {
    

@@ -1,5 +1,5 @@
 
-package toggl_backend;
+package toggl_api_interface;
 
 import java.io.BufferedReader;
 import java.io.IOException;

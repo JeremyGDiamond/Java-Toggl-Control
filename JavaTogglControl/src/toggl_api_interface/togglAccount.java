@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package toggl_backend;
+package toggl_api_interface;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -37,14 +37,14 @@ public class togglAccount {
         return output.substring(output.indexOf("api_token")+12,output.indexOf("api_token")+44);
     }
       
-    public void currentTimer () throws ProtocolException, IOException
+    public String currentTimer () throws ProtocolException, IOException
     {
         String output =  Universal_JSON_Body_Http_Methods.Universal_Get("https://www.toggl.com/api/v8/time_entries/current",uName,password);
         //System.out.println(output);
         
         if ("{\"data\":null}".equals(output))
         {
-            System.out.println("no current timer");
+        return "no current timer";
             
         }
         else
@@ -88,10 +88,12 @@ public class togglAccount {
         endLoc = output.indexOf("\"", startLoc);
         
         String name = output.substring(startLoc, endLoc);
-        System.out.println(name);
         
-        System.out.println(numofhr + ":" + numofmin + ":" + numofsec);
+        return name + numofhr + ":" + numofmin + ":" + numofsec;
+        
+        
         }
+        
     }
     
     public void stopCurrent () throws ProtocolException, IOException
