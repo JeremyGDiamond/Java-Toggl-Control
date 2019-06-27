@@ -7,9 +7,7 @@ package toggl_api_interface;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
 import java.net.ProtocolException;
 import java.util.ArrayList;
 
@@ -22,8 +20,8 @@ public class Test_Main {
     public static void main(String[] args) throws ProtocolException, IOException {
         
         //make variables for testing
-            String uName = new String();
-            String pWord = new String();
+            String uName;
+            String pWord;
         
         //read login from the console
             
@@ -40,6 +38,7 @@ public class Test_Main {
         //create new account object
             togglAccount testAccount = new togglAccount(uName,pWord);
             
+            //read projects and tags from toggl server
             testAccount.readAllProjects();
             testAccount.readAllTags();
        
@@ -52,14 +51,53 @@ public class Test_Main {
                 System.out.println(testAccount.currentTimer());
             
             //Universal_Put not currently used
-        
-        //testing all project methods
-        
-            
-        
-        //testing all tag methods
-       
+      
         //testing all account methods
+        	
+            // togglAccount(String api_key)
+                // first constructor takes api key and builds account
+
+            // togglAccount(String user_name, String user_password) SEE ABOVE USE 
+                // second constructor takes user name and password then builds account
+
+            // String getApiToken (String user_name, String user_password) used in second constructor
+                // retreives api key from server
+
+            // String currentTimer ()
+                // retreives current timer from server
+
+            // void stopCurrent ()
+                // stops current timer on server
+
+            // void addProjectToDatabase(String newId,String newName)
+                // adds project to internal list of projects
+
+            // void addTagToDatabase(String newId,String newName)
+                // adds tag to internal list of tag
+                
+            // void RemoveTagFromDatabase(int tagIndex)
+
+            // void RemoveProjectFromDatabase(int projectIndex)
+
+            // void readAllProjects() 
+
+            // void readAllTags() 
+
+            // ArrayList<String> getAProjectsData(int index)
+
+            // ArrayList<String> getATagsData(int index)
+
+            // ArrayList<ArrayList> getAllTagsData(ArrayList<Integer> indexs)
+
+            // ArrayList<ArrayList> getAllProjectsData(ArrayList<Integer> indexs)
+
+            // ArrayList<String> getAllDescriptionsFromAProject(int projectIndex)
+
+            // void setAllDescriptionsFromAProject(int projectIndex, ArrayList<String> newDescrips)
+
+            // void startATimer(int projectIndex, int desriptionIndex) SEE ABOVE USE,
+
+            // void startATimerWithTags(int projectIndex, int desriptionIndex,ArrayList<Integer> tagIndexs)
     }
 
    
